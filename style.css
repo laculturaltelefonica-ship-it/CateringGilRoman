@@ -24,13 +24,18 @@ body {
   color: var(--blanco);
   padding: 1rem 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
 
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
 .navbar nav a {
   color: var(--blanco);
-  margin: 0 1rem;
+  margin-left: 1rem;
   text-decoration: none;
   font-weight: 500;
 }
@@ -42,7 +47,7 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background: var(--principal);
   color: var(--blanco);
 }
@@ -70,31 +75,91 @@ h2 {
   color: var(--secundario);
 }
 
+/* CARD */
 .card {
   background: var(--blanco);
   padding: 1rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* GALERÍA */
-.galeria-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Contenedor de texto de la card */
+.card-text {
+  padding: 0 1rem;
 }
 
-.galeria-grid img {
+/* Imágenes intercaladas */
+.intercalada {
   width: 100%;
-  border-radius: 8px;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background: var(--secundario);
   color: var(--blanco);
+}
+
+footer a {
+  color: var(--blanco);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer a:hover {
+  color: var(--principal);
+}
+
+/* Media queries */
+@media (min-width: 768px) {
+  /* Alternar imagen/texto en cards */
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .card img.intercalada {
+    width: 50%;
+    margin: 0;
+  }
+
+  .card .card-text {
+    width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card img.intercalada {
+    width: 100%;
+    margin: 20px 0 0 0;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar nav a {
+    margin-left: 0;
+    margin-top: 5px;
+  }
 }
