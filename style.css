@@ -51,7 +51,7 @@ body {
   width: 100%;
   background:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), /* sombra sobre imagen */
-    url("./images/espacio.jpg") center / cover no-repeat; /* cambia ./images/tu-imagen.jpg por tu ruta */
+    url("./images/espacio.jpeg") center / cover no-repeat; /* cambia ./images/tu-imagen.jpg por tu ruta */
   
   display: flex;
   justify-content: center;
