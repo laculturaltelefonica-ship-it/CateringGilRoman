@@ -247,6 +247,22 @@ form button {
   color: yellow;
 }
 
+.overlay-content button {
+  padding: 0.8rem 1.8rem;
+  background: white;
+  color: var(--color-principal);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.overlay-content button:hover {
+  background: #ffd6d6;
+  transform: scale(1.05);
+}
+
 .overlay-content p {
   font-size: 1.3rem;
 }
