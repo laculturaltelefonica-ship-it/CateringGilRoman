@@ -286,17 +286,14 @@ form button {
 /* 📱 AJUSTE FULLSCREEN EN MÓVIL */
 @media (max-width: 768px) {
   .fullscreen {
-    min-height: auto;
+    min-height: auto;          /* deja de forzar 100vh */
     height: auto;
-    padding: 4rem 1.5rem;
-
-    /* 🔥 CLAVE */
-    background-size: 100% auto;
-    background-position: top center;
+    padding: 4rem 1.5rem;      /* espacio vertical cómodo */
+    background-size: contain;  /* muestra la imagen completa */
   }
 
   .fullscreen::before {
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.35); /* overlay más suave en móvil */
   }
 
   .overlay-content h2 {
