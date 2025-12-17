@@ -23,6 +23,7 @@ body {
 }
 
 /* NAVBAR */
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
@@ -44,7 +45,7 @@ body {
 
 .navbar.scrolled {
   background: var(--color-secundario);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -62,10 +63,13 @@ body {
   color: var(--color-principal);
 }
 
-/* HERO */
+/* ========================= */
+/* HERO (PANTALLA COMPLETA) */
+/* ========================= */
 .hero {
   height: 100vh;
   width: 100%;
+
   background:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("./images/ensaladatempladaD.jpeg") center / cover no-repeat;
@@ -78,6 +82,7 @@ body {
   color: white;
   padding: 2rem;
 
+  /* 🔥 CLAVE: anulamos el estilo de section */
   max-width: none;
   margin: 0;
 }
@@ -113,7 +118,9 @@ body {
   transform: scale(1.05);
 }
 
+/* ========================= */
 /* SECCIONES NORMALES */
+/* ========================= */
 section:not(.hero):not(.fullscreen) {
   padding: 4rem 2rem;
   max-width: 1000px;
@@ -201,37 +208,36 @@ form button {
   font-weight: bold;
 }
 
-/* ========================= */
-/* FULLSCREEN AJUSTABLE PROPORCIONALMENTE */
 .fullscreen {
-  position: relative;
+  height: 100vh;
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  overflow: hidden;
+
+  color: white;
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.fullscreen img {
-  width: 100%;        /* ocupa todo el ancho */
-  height: auto;       /* altura proporcional */
-  display: block;
-}
+
 
 .fullscreen::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
 }
 
 .overlay-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  max-width: 800px;
+  position: relative;
   z-index: 2;
+  max-width: 800px;
   padding: 2rem;
 }
 
@@ -245,33 +251,34 @@ form button {
   font-size: 1.3rem;
 }
 
-/* MEDIA QUERIES: AJUSTE MÓVIL */
-@media (max-width: 768px) {
-  .fullscreen {
-    min-height: auto;
-    height: auto;
-    padding: 2rem 1rem;
-  }
-
-  .fullscreen::before {
-    background: rgba(0, 0, 0, 0.35);
-  }
-
-  .overlay-content h2 {
-    font-size: 2rem;
-  }
-
-  .overlay-content p {
-    font-size: 1.1rem;
-  }
+.bg-espacio {
+  background-image: url("./images/espacio.jpeg");
 }
 
-/* Ejemplo de imágenes específicas */
-.bg-espacio img { content: url("./images/espacio.jpeg"); }
-.bg-huevorelleno img { content: url("./images/huevorelleno.jpeg"); }
-.bg-embutidos img { content: url("./images/embutidos.jpeg"); }
-.bg-ensaladatempladaD img { content: url("./images/ensaladatempladaD.jpeg"); }
-.bg-ensaladatempladaC img { content: url("./images/ensaladatempladaC.jpeg"); }
-.bg-migas img { content: url("./images/migas.jpeg"); }
-.bg-jamon img { content: url("./images/jamon.jpeg"); }
-.bg-paella img { content: url("./images/paella.jpeg"); }
+.bg-huevorelleno {
+  background-image: url("./images/huevorelleno.jpeg");
+}
+
+.bg-embutidos {
+  background-image: url("./images/embutidos.jpeg");
+}
+
+.bg-ensaladatempladaD {
+  background-image: url("./images/ensaladatempladaD.jpeg");
+}
+
+.bg-ensaladatempladaC {
+  background-image: url("./images/ensaladatempladaC.jpeg");
+}
+
+.bg-migas {
+  background-image: url("./images/migas.jpeg");
+}
+
+.bg-jamon {
+  background-image: url("./images/jamon.jpeg");
+}
+
+.bg-paella {
+  background-image: url("./images/paella.jpeg");
+}
