@@ -208,9 +208,10 @@ form button {
   font-weight: bold;
 }
 
+
 .fullscreen {
-  height: 100vh;
   width: 100%;
+  min-height: 100vh; /* desktop por defecto */
 
   display: flex;
   justify-content: center;
@@ -224,6 +225,7 @@ form button {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 
 .fullscreen::before {
   content: "";
@@ -279,4 +281,26 @@ form button {
 
 .bg-paella {
   background-image: url("./images/paella.jpeg");
+}
+
+/* 📱 AJUSTE FULLSCREEN EN MÓVIL */
+@media (max-width: 768px) {
+  .fullscreen {
+    min-height: auto;          /* deja de forzar 100vh */
+    height: auto;
+    padding: 4rem 1.5rem;      /* espacio vertical cómodo */
+    background-size: contain;  /* muestra la imagen completa */
+  }
+
+  .fullscreen::before {
+    background: rgba(0, 0, 0, 0.35); /* overlay más suave en móvil */
+  }
+
+  .overlay-content h2 {
+    font-size: 2rem;
+  }
+
+  .overlay-content p {
+    font-size: 1.1rem;
+  }
 }
