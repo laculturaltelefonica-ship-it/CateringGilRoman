@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contáctanos | La Cultural Telefónica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    form {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .ok {
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h2>Contáctanos</h2>
+
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
+    <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+    <div class="ok" id="successMsg">Mensaje enviado correctamente ✔</div>
+  </form>
+
+  <script>
+    (function () {
+      emailjs.init("XTg7lRhg7RNbEGYMB");
+    })();
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // 1️⃣ Correo para ti
+      emailjs.sendForm(
+        "service_4olj3be",
+        "template_g5jz7ir",
+        this
+      );
+
+      // 2️⃣ Correo automático para el usuario
+      emailjs.sendForm(
+        "service_4olj3be",
+        "template_g0fp33i",
+        this
+      )
+      .then(function () {
+        document.getElementById("successMsg").style.display = "block";
+        document.getElementById("contactForm").reset();
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+        alert("Error al enviar el mensaje");
+      });
+    });
+  </script>
+
+</body>
+</html>
