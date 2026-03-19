@@ -72,7 +72,8 @@ body {
 
   background:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url("./images/ensaladatempladaD.jpeg") center / cover no-repeat;
+/*    url("./images/ensaladatempladaD.jpeg") center / cover no-repeat; */
+    url("./images/mesa1.jpeg") center / cover no-repeat;
 
   display: flex;
   justify-content: center;
@@ -268,7 +269,8 @@ form button {
 }
 
 .bg-espacio {
-  background-image: url("./images/espacio.jpeg");
+/*  background-image: url("./images/espacio.jpeg"); */
+  background-image: url("./images/mesa2.jpeg");
 }
 
 .bg-huevorelleno {
