@@ -285,6 +285,13 @@ form button {
   background-image: url("./images/ensaladatempladaD.jpeg");
 }
 
+.bg-mesa1 {
+  background-image: url("./images/mesa1.jpeg");
+}
+
+.bg-mesa2 {
+  background-image: url("./images/mesa2.jpeg");
+}
 .bg-ensaladatempladaC {
   background-image: url("./images/ensaladatempladaC.jpeg");
 }
