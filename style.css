@@ -1,11 +1,17 @@
+/* =========================
+   VARIABLES (COLORES)
+========================= */
 :root {
   --color-principal: #e63946;
   --color-secundario: #1d3557;
   --color-fondo: #f1faee;
-  --color-texto: #333;
+  --color-texto: #222;
+  --color-blanco: #ffffff;
 }
 
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -22,8 +28,9 @@ body {
   color: var(--color-texto);
 }
 
-/* NAVBAR */
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -36,131 +43,239 @@ body {
 
   padding: 1rem 2rem;
 
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
 
   color: white;
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
   background: var(--color-secundario);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 .logo {
   font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .navbar nav a {
   color: white;
   text-decoration: none;
-  margin-left: 1rem;
-  transition: color 0.3s;
+  margin-left: 1.2rem;
+  transition: 0.3s;
 }
 
 .navbar nav a:hover {
   color: var(--color-principal);
 }
 
-/* ========================= */
-/* HERO (PANTALLA COMPLETA) */
-/* ========================= */
-.hero {
-  height: 100vh;
-  width: 100%;
+/* =========================
+   HERO GRID
+========================= */
+.hero-grid {
+  min-height: 100vh;
+  padding: 120px 2rem 60px;
 
-  background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-/*    url("./images/ensaladatempladaD.jpeg") center / cover no-repeat; */
-    url("./images/mesa1.jpeg") center / cover no-repeat;
-
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   align-items: center;
-  text-align: center;
-
-  color: white;
-  padding: 2rem;
-
-  /* 🔥 CLAVE: anulamos el estilo de section */
-  max-width: none;
-  margin: 0;
 }
 
-.hero-content {
-  max-width: 800px;
-}
-
-.titulo-amarillo {
-  color: yellow;
-  font-size: 3rem;
+/* TEXTO */
+.hero-text h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.hero p {
+.hero-text p {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.hero button {
-  padding: 0.8rem 1.8rem;
+/* BOTONES */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-principal {
+  background: var(--color-principal);
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-principal:hover {
+  transform: translateY(-2px);
+  background: #d62839;
+}
+
+.btn-secundario {
   background: white;
   color: var(--color-principal);
-  border: none;
+  padding: 0.9rem 1.6rem;
   border-radius: 10px;
+  text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
+  border: 2px solid var(--color-principal);
+  transition: 0.3s;
 }
 
-.hero button:hover {
-  background: #ffd6d6;
-  transform: scale(1.05);
+.btn-secundario:hover {
+  background: var(--color-principal);
+  color: white;
 }
 
-/* ========================= */
-/* SECCIONES NORMALES */
-/* ========================= */
-section:not(.hero):not(.fullscreen) {
-  padding: 4rem 2rem;
-  max-width: 1000px;
-  margin: auto;
-}
-
-h2 {
-  color: var(--color-secundario);
-  margin-bottom: 1.5rem;
-}
-
-/* CARDS */
-.card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* GALERÍA */
-.galeria-grid {
+/* =========================
+   GRID OPCIONES
+========================= */
+.grid-opciones {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
-.galeria-grid img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+.card-grid {
+  position: relative;
+  height: 180px;
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center;
+
+  transition: transform 0.3s ease;
 }
 
-.galeria-grid img:hover {
+.card-grid:hover {
   transform: scale(1.05);
 }
 
-/* FOOTER */
+/* OVERLAY */
+.card-grid .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 1rem;
+}
+
+.card-grid h3 {
+  font-size: 1.2rem;
+}
+
+/* =========================
+   SECCIONES
+========================= */
+.seccion {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.seccion h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-secundario);
+}
+
+/* =========================
+   SERVICIOS
+========================= */
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.5rem;
+}
+
+.servicio {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.servicio:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   PRECIOS
+========================= */
+.precios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1.5rem;
+}
+
+.precio-card {
+  background: var(--color-secundario);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* =========================
+   FAQ
+========================= */
+.faq-item {
+  background: white;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+  margin-bottom: 0.5rem;
+  color: var(--color-principal);
+}
+
+/* =========================
+   CTA FINAL
+========================= */
+.cta-final {
+  background: var(--color-principal);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.cta-final h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+.contacto {
+  text-align: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -168,147 +283,34 @@ footer {
   color: white;
 }
 
-/* ANIMACIONES */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
+footer a {
+  color: #ddd;
+  text-decoration: none;
 }
 
-.delay-1 {
-  animation-delay: 0.3s;
+/* =========================
+   BACKGROUNDS (REUTILIZADOS)
+========================= */
+.bg-paella {
+  background-image: url("./images/paella.jpeg");
 }
 
-.delay-2 {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-input, textarea {
-  width: 100%;
-  padding: 0.7rem;
-  margin: 0.5rem 0 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-}
-
-form button {
-  background: var(--color-principal);
-  color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.fullscreen {
-  height: 100vh;
-  width: 100%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  color: white;
-  position: relative;
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-
-.fullscreen::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-}
-
-.overlay-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 2rem;
-}
-
-.overlay-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  color: yellow;
-}
-
-.overlay-content button {
-  padding: 0.8rem 1.8rem;
-  background: white;
-  color: var(--color-principal);
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s, background 0.3s;
-}
-
-.overlay-content button:hover {
-  background: #ffd6d6;
-  transform: scale(1.05);
-}
-
-.overlay-content p {
-  font-size: 1.3rem;
-}
-
-.bg-espacio {
-/*  background-image: url("./images/espacio.jpeg"); */
+.bg-mesa2 {
   background-image: url("./images/mesa2.jpeg");
-}
-
-.bg-huevorelleno {
-  background-image: url("./images/huevorelleno.jpeg");
 }
 
 .bg-embutidos {
   background-image: url("./images/embutidos.jpeg");
 }
 
-.bg-ensaladatempladaD {
-  background-image: url("./images/ensaladatempladaD.jpeg");
+.bg-espacio {
+  background-image: url("./images/espacio.jpeg");
 }
 
-.bg-mesa1 {
-  background-image: url("./images/mesa1.jpeg");
-}
-
-.bg-mesa2 {
-  background-image: url("./images/mesa2.jpeg");
-}
-.bg-ensaladatempladaC {
-  background-image: url("./images/ensaladatempladaC.jpeg");
-}
-
-.bg-migas {
-  background-image: url("./images/migas.jpeg");
-}
-
-.bg-jamon {
-  background-image: url("./images/jamon.jpeg");
-}
-
-.bg-paella {
-  background-image: url("./images/paella.jpeg");
-}
-
-.whatsapp-btn{
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp-btn {
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -317,14 +319,36 @@ form button {
   z-index: 999;
 }
 
-.whatsapp-btn img{
+.whatsapp-btn img {
   width: 100%;
-  height: 100%;
   border-radius: 50%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
+  transition: 0.2s;
 }
 
-.whatsapp-btn img:hover{
+.whatsapp-btn img:hover {
   transform: scale(1.1);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .grid-opciones {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
 }
