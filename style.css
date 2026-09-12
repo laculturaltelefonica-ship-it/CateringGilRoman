@@ -1,6 +1,5 @@
 /* CateringGilRoman/style.css */
 
-```css
 /* =========================================================
    CATERING GIL & ROMÁN
    STYLE.CSS — VERSIÓN DEFINITIVA
@@ -277,7 +276,6 @@ a {
 
 }
 
-
 /* =========================================================
    HERO
    ========================================================= */
@@ -304,8 +302,29 @@ a {
     5%
     80px;
 
+  overflow: hidden;
+
+}
+
+
+/* =========================================================
+   IMAGEN DEL HERO GIRADA 90°
+   ========================================================= */
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 120%;
+  height: 120%;
+
+  top: 50%;
+  left: 50%;
+
   background-image:
-    url("./images/mesa1.jpeg");
+    url("./images/Mesa1_preboda.jpeg");
 
   background-size: cover;
 
@@ -313,12 +332,18 @@ a {
 
   background-repeat: no-repeat;
 
-  overflow: hidden;
+  transform:
+    translate(-50%, -50%)
+    rotate(90deg);
+
+  z-index: 0;
 
 }
 
 
-/* Overlay principal */
+/* =========================================================
+   OVERLAY PRINCIPAL
+   ========================================================= */
 
 .hero-overlay {
 
@@ -335,8 +360,9 @@ a {
       rgba(0,0,0,0.68) 100%
     );
 
-}
+  z-index: 1;
 
+}
 
 /* Ligero efecto de profundidad */
 
@@ -2754,4 +2780,3 @@ summary:focus-visible {
 /* =========================================================
    FIN
    ========================================================= */
-```
