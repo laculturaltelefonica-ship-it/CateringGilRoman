@@ -276,7 +276,7 @@ a {
 
 }
 
-```css
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -303,29 +303,8 @@ a {
     5%
     80px;
 
-  overflow: hidden;
-
-}
-
-
-/* =========================================================
-   IMAGEN DEL HERO GIRADA 90°
-   ========================================================= */
-
-.hero::before {
-
-  content: "";
-
-  position: absolute;
-
-  width: 145%;
-  height: 145%;
-
-  top: 50%;
-  left: 50%;
-
   background-image:
-    url("./images/Mesa1_preboda.jpeg");
+    url("./images/mMesa1_preboda.jpeg");
 
   background-size: cover;
 
@@ -333,18 +312,12 @@ a {
 
   background-repeat: no-repeat;
 
-  transform:
-    translate(-50%, -50%)
-    rotate(90deg);
-
-  z-index: 0;
+  overflow: hidden;
 
 }
 
 
-/* =========================================================
-   OVERLAY PRINCIPAL
-   ========================================================= */
+/* Overlay principal */
 
 .hero-overlay {
 
@@ -361,10 +334,7 @@ a {
       rgba(0,0,0,0.68) 100%
     );
 
-  z-index: 1;
-
 }
-```
 
 
 /* Ligero efecto de profundidad */
